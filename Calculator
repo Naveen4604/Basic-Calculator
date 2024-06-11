@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container
+        {
+            padding: 2rem;
+            border-radius: 3rem;
+            background-color: black;
+            width: 60vw;
+            height: 60vh;
+            display: grid;
+            grid-column: repeat(4,1fr);
+            grid-row: repeat(5,1fr);
+            grid-gap:2rem;
+        }
+        input
+        {
+            background-color: antiquewhite;
+            border-radius: 5px;
+            font-size: 3rem;
+            grid-row: 1;
+            grid-column: 1/4;
+        }
+        button
+        {
+            background-color: aquamarine;
+        }
+        .clear
+        {
+            grid-row:1;
+            grid-column: 4;
+        }
+        .first-row
+        {
+            grid-row:2;
+        }
+        .second-row
+        {
+            grid-row:3;
+        }
+        .third-row
+        {
+            grid-row:4;
+        }
+        .last-row
+        {
+            grid-row:5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text" name="" id="" disabled>
+        <button  class="third-row" onclick="add(1)">1</button>
+        <button class="third-row" onclick="add(2)">2</button>
+        <button class="third-row" onclick="add(3)">3</button>
+        <button class="second-row" onclick="add(4)">4</button>
+        <button class="second-row" onclick="add(5)">5</button>
+        <button class="second-row" onclick="add(6)">6</button>
+        <button class="first-row" onclick="add(7)">7</button>
+        <button class="first-row" onclick="add(8)">8</button>
+        <button class="first-row" onclick="add(9)">9</button>
+        <button class="last-row" onclick="add(0)">0</button>
+        <button class="third-row" onclick="add('+')">+</button>
+        <button class="first-row" onclick="add('/')">/</button>
+        <button class="second-row" onclick="add('')"></button>
+        <button class="last-row" onclick="res()" style="grid-column: 3/5;">=</button>
+        <button class="last-row" onclick="add('-')">-</button>
+        <button class="clear" onclick="cls()">Clear</button>
+    </div>
+</body>
+<script>
+    var inp = document.querySelector("input");
+    function cls()
+    {
+        inp.value="";
+    }
+    function add(o)
+    {
+        inp.value+=o;
+    }
+    function res()
+    {
+        inp.value=eval(inp.value);
+    }
+</script>
+</html>
